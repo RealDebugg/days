@@ -1,8 +1,10 @@
 import localFont from 'next/font/local'
+import { useRouter } from 'next/router'
 
 const broad = localFont({ src: './VolvoBroad.ttf' })
 const novum = localFont({ src: './VolvoNovum.woff2' })
 export default function Home() {
+  const router = useRouter();
 
   const daysInYear = (year) => {
     return ((year % 4 === 0 && year % 100 > 0) || year % 400 == 0) ? 366 : 365;
@@ -21,9 +23,14 @@ export default function Home() {
 
   return (
     <>
-      <p className={`text-white font-bold text-8xl text-center absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 ${broad.className}`}>{percentage}%</p>
-      <div className={`text-white text-base text-center absolute top-[60%] left-1/2 -translate-y-1/2 -translate-x-1/2 ${novum.className}`}>
-        <p>Of the year has passed, thats {getDayOfYear()} out of {daysInYear(new Date().getFullYear())} days</p>
+      <div className="flex flex-col items-center justify-center min-h-screen relative">
+        <p className={`text-white font-bold text-8xl text-center mb-6 ${broad.className}`}>{percentage}%</p>
+        <div className={`text-white text-base text-center mb-2 ${novum.className}`}>
+          <p style={{ margin: '0 20px' }}>
+            Of the year has passed, that's {getDayOfYear()} out of {daysInYear(new Date().getFullYear())} days
+          </p>
+        </div>
+        <button className="advert-button" onClick={() => router.push('/create')}>Create your own countdown</button>
       </div>
     </>
   );
