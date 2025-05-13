@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 export default function Create() {
     const titleRef = useRef();
@@ -34,6 +35,9 @@ export default function Create() {
 
     return (
         <>
+            <Head>
+                <title>Create a Countdown | Days</title>
+            </Head>
             <div className="create-box">
                 <h1>Create a countdown</h1>
                 <form onSubmit={handleSubmit}>

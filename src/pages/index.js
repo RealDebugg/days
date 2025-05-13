@@ -1,5 +1,6 @@
 import localFont from 'next/font/local'
 import { useRouter } from 'next/router'
+import Head from "next/head";
 
 const broad = localFont({ src: './VolvoBroad.ttf' })
 const novum = localFont({ src: './VolvoNovum.woff2' })
@@ -19,10 +20,18 @@ export default function Home() {
     return dayNumber;
   }
 
+  const getYear = () => {
+    const now = new Date();
+    return now.getFullYear();
+  }
+
   let percentage = Math.floor((getDayOfYear() * 100) / daysInYear(new Date().getFullYear()));
 
   return (
     <>
+      <Head>
+        <title>{getYear()} Countdown | Days</title>
+      </Head>
       <div className="flex flex-col items-center justify-center min-h-screen relative">
         <p className={`text-white font-bold text-8xl text-center mb-6 ${broad.className}`}>{percentage}%</p>
         <div className={`text-white text-base text-center mb-2 ${novum.className}`}>
