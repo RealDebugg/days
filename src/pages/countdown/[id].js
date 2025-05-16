@@ -58,11 +58,11 @@ export default function Countdown() {
                 <title>{loading ? "Loading..." : countdown?.title || "Countdown"}</title>
             </Head>
             {loading ? (
-                <div className="flex flex-col items-center justify-center min-h-screen">
+                <div className="flex flex-col items-center justify-center min-h-dvh">
                     <span className="spinner" />
                 </div>
             ) : (
-                <div className="flex flex-col items-center justify-center min-h-screen relative">
+                <div className="flex flex-col items-center justify-center min-h-dvh relative">
                     <h1 className={`text-white font-bold text-4xl text-center mb-4 ${broad.className}`}>{countdown.title}</h1>
                     <p className={`text-white font-bold text-8xl text-center mb-6 ${broad.className}`}>{percentage}%</p>
                     <div className={`text-white text-base text-center mb-2 ${novum.className}`}>
