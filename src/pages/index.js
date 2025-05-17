@@ -33,7 +33,7 @@ export default function Home() {
         <title>{getYear()} Countdown | Days</title>
       </Head>
       <div className="flex flex-col items-center justify-center min-h-dvh relative">
-        <p className={`text-white font-bold text-8xl text-center mb-6 ${broad.className}`}>{percentage}%</p>
+        <p className={`text-white font-bold text-8xl text-center mb-6 ${broad.className}`} style={{fontSynthesis: 'none'}}>{percentage}%</p>
         <div className={`text-white text-base text-center mb-2 ${novum.className}`}>
           <p style={{ margin: '0 20px' }}>
             Of the year has passed, that's {getDayOfYear()} out of {daysInYear(new Date().getFullYear())} days
